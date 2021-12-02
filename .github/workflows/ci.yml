@@ -3,13 +3,28 @@ name: CI
 on: [push]
 
 jobs:
+  read-config:
+    runs-on: ubuntu-latest
+    outputs:
+      ruby_versions: ${{ steps.read-ruby-versions.outputs.config }}
+      node_versions: ${{ steps.read-node-versions.outputs.config }}
+    steps:
+    - id: read-ruby-versions
+      run: |
+        JSON=$(cat ruby_versions.json)
+        echo "::set-output name=config::${JSON//'%'/'%25'}"
+    - id: read-node-versions
+      run: |
+        JSON=$(cat node_versions.json)
+        echo "::set-output name=config::${JSON//'%'/'%25'}"
+
   buildx:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
+    needs: read-config
     strategy:
-      fail-fast: false
       matrix:
-        ruby_version: ${{ fromJson(ruby_versions.json) }}
-        node_version: ${{ fromJson(node-versions.json) }}
+        ruby_version: ${{ fromJSON(needs.read-config.outputs.ruby_versions) }}
+        node_version: ${{ fromJSON(needs.read-config.outputs.node_versions) }}
 
     steps:
       - name: Checkout
