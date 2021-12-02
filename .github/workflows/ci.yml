@@ -27,7 +27,7 @@ jobs:
             RUBY_VERSION=${{ matrix.ruby_version }}
             NODE_VERSION=${{ matrix.node_version }}
           platforms: linux/arm/v6,linux/arm64,linux/arm/v7,linux/ppc64le,linux/amd64
-          tags: ${{ matrix.ruby_version }}-${{ matrix.node_version }}-alpine
+          tags: ruby-node-alpine:${{ matrix.ruby_version }}-${{ matrix.node_version }}-alpine
 
       - name: Test image
-        run: docker run -i ${{ matrix.ruby_version }}-${{ matrix.node_version }}-alpine /bin/sh -c "ruby --version && node --version"
+        run: docker run -i ruby-node-alpine:${{ matrix.ruby_version }}-${{ matrix.node_version }}-alpine /bin/sh -c "ruby --version && node --version"
