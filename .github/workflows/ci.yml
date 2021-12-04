@@ -50,4 +50,4 @@ jobs:
             RUBY_VERSION=${{ matrix.ruby_version }}
             NODE_VERSION=${{ matrix.node_version }}
           platforms: linux/arm/v6,linux/arm64,linux/arm/v7,linux/ppc64le,linux/amd64
-          tags: ruby-node-alpine:${{ matrix.ruby_version }}-${{ matrix.node_version }}-alpine
+          tags: thisismydesign/ruby-node-alpine:${{ matrix.ruby_version }}-${{ matrix.node_version }}-alpine
