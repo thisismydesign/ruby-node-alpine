@@ -1,6 +1,16 @@
 # ruby-node-alpine
 
-Simple Dockerfile for building custom Ruby + Node alpine images.
+#### Simple Dockerfile for building custom Ruby + Node alpine images.
+
+Images available on [Docker Hub](https://hub.docker.com/repository/docker/thisismydesign/ruby-node-alpine) e.g. `thisismydesign/ruby-node-alpine:3.0.2-16.13.0-alpine`
+
+Available versions (defined in the [GitHub Actions workflow](.github/workflows/ci.yml)):
+- Ruby: `[3.0.0, 3.0.1, 3.0.2, 3.0.3]`
+- Node: `[16.13.0, 16.13.1]`
+
+Versions are easily extendable by opening a PR or forking the repo and pushing images to your own registry.
+
+## Usage
 
 ```sh
 export RUBY_VERSION=3.0.3
