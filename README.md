@@ -2,6 +2,8 @@
 
 #### Simple Dockerfile for building Ruby + Node alpine images for custom versions.
 
+[Why is this topic so complicated?](https://csaba-apagyi.medium.com/how-to-install-a-specific-node-js-version-in-an-alpine-docker-image-3edc1c2c64be)
+
 Images available on [Docker Hub](https://hub.docker.com/repository/docker/thisismydesign/ruby-node-alpine) (currently on free tier with limited pulls, consider [supporting](https://github.com/sponsors/thisismydesign)).
 
 ```
